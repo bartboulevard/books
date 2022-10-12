@@ -3,10 +3,10 @@ const addTitle = document.querySelector('#title')
 const addAuthor = document.querySelector('#author')
 const addISBN = document.querySelector('#isbn')
 const table = document.querySelector('table')
-//const taskDelete = document.querySelector('table')
+const taskDelete = document.querySelector('table')
 
 form.addEventListener('click', addBook)
-//taskDelete.addEventListener('click', deleteBook)
+taskDelete.addEventListener('click', deleteBook)
 
 function addBook(e){
     let row = table.insertRow()
@@ -22,3 +22,10 @@ function addBook(e){
     row.appendChild(td)
 }
 
+function deleteBook(e){
+    if(e.target.textContent === 'X'){
+        if(confirm('Are you sure you want to delete this value?')){}
+        e.target.parentElement.parentNode.remove()
+        console.log(e.target.parentNode)
+    }
+}
